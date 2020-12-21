@@ -2,12 +2,14 @@ package edu.simrandhillon.gameprojectpage1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -26,11 +28,6 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
     boolean highLimit_SOUTH = false;      // detect high limit
     boolean highLimit_WEST = false;      // detect high limit
     boolean highLimit_EAST = false;      // detect high limit
-    int counter = 0;                // step counter
-    int counterNorth = 0;                // step counter
-    int counterSouth = 0;                // step counter
-    int counterEast = 0;                // step counter
-    int counterWest = 0;                // step counter
 
     Button b2Red, b2Blue, b2Yellow, b2Green, fb2;
 
@@ -100,7 +97,7 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
 
         }
         if ((x < NORTH_MOVE_BACKWARD) && (highLimit == true)) {
-            counterNorth++;
+
 
             b2Blue.getBackground().setAlpha(100);
             highLimit = false;
@@ -113,7 +110,7 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
 
         }
         if ((x > SOUTH_MOVE_BACKWARD) && (highLimit_SOUTH == true)) {
-            counterSouth++;
+
             b2Yellow.getBackground().setAlpha(100);
             highLimit_SOUTH = false;
         }
@@ -124,7 +121,7 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
 
         }
         if ((y > EAST_MOVE_BACKWARD) && (highLimit_EAST == true)) {
-            counterEast++;
+
 
             b2Green.getBackground().setAlpha(100);;
             highLimit_EAST = false;
@@ -135,7 +132,7 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
             b2Red.getBackground().setAlpha(255);
         }
         if ((y < WEST_MOVE_BACKWARD) && (highLimit_WEST == true)) {
-            counterWest++;
+
             b2Red.getBackground().setAlpha(100);
 
             highLimit_WEST = false;
@@ -181,4 +178,9 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
         };
     }
 
+    public void doSkip(View view)
+    {
+        Intent GameOverActivity = new Intent(view.getContext(), edu.simrandhillon.gameprojectpage1.GameOverActivity.class);
+        startActivity(GameOverActivity);
+    }
 }

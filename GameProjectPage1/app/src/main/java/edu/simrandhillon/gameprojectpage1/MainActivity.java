@@ -91,6 +91,19 @@ public class MainActivity extends AppCompatActivity {
                 {
                     for (int i = 0; i< arrayIndex; i++)
                         Log.d("game sequence", String.valueOf(gameSequence[i]));
+
+
+                    // start next activity
+
+
+                    // put the sequence into the next activity
+                    // stack overglow https://stackoverflow.com/questions/3848148/sending-arrays-with-intent-putextra
+                    Intent i = new Intent(MainActivity.this, PlayScreenActivity.class);
+                    // i.putExtra("numbers", array);
+                    startActivity(i);
+
+                    // start the next activity
+                    //int[] arrayB = extras.getIntArray("numbers");
                 }
             };
 
@@ -111,6 +124,19 @@ public class MainActivity extends AppCompatActivity {
                 {
                     for (int i = 0; i< arrayIndex; i++)
                         Log.d("game sequence", String.valueOf(gameSequence[i]));
+
+
+                    // start next activity
+
+
+                    // put the sequence into the next activity
+                    // stack overglow https://stackoverflow.com/questions/3848148/sending-arrays-with-intent-putextra
+                    Intent i = new Intent(MainActivity.this, PlayScreenActivity.class);
+                    // i.putExtra("numbers", array);
+                    startActivity(i);
+
+                    // start the next activity
+                    //int[] arrayB = extras.getIntArray("numbers");
                 }
             };
 
@@ -125,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void oneButton() {
 
-        Toast.makeText(this, "Number = " + arrayIndex, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Index: = " + arrayIndex, Toast.LENGTH_SHORT).show();
         n = getRandom(sequenceCount);
 
         switch (n) {
