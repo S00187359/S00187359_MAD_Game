@@ -30,7 +30,9 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
     boolean highLimit_EAST = false;      // detect high limit
 
     Button b2Red, b2Blue, b2Yellow, b2Green, fb2;
-
+    TextView tv_Score;
+    int[] arrayB;
+    int score = 0;
     private SensorManager mSensorManager;
     private Sensor mSensor;
 
@@ -49,8 +51,12 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
         b2Green.getBackground().setAlpha(100);
         b2Yellow.getBackground().setAlpha(100);
 
-        // int[] arrayB = extras.getIntArray("numbers");
+        arrayB = getIntent().getIntArrayExtra("numbers");
         // 1 2 1 1  (N N W N)
+
+        tv_Score = findViewById(R.id.tvScore);
+        tv_Score.setText(String.valueOf(score));
+
 
 
         // we are going to use the sensor service
@@ -94,6 +100,8 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
         if ((x > NORTH_MOVE_FORWARD) && (highLimit == false)) {
             highLimit = true;
             b2Blue.getBackground().setAlpha(255);
+            score += 1;
+            tv_Score.setText(String.valueOf(score));
 
         }
         if ((x < NORTH_MOVE_BACKWARD) && (highLimit == true)) {
@@ -107,6 +115,8 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
         if ((x < SOUTH_MOVE_FORWARD) && (highLimit_SOUTH == false)) {
             highLimit_SOUTH = true;
             b2Yellow.getBackground().setAlpha(255);
+            score += 1;
+            tv_Score.setText(String.valueOf(score));
 
         }
         if ((x > SOUTH_MOVE_BACKWARD) && (highLimit_SOUTH == true)) {
@@ -118,6 +128,8 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
         if ((y < EAST_MOVE_FORWARD) && (highLimit_EAST == false)) {
             highLimit_EAST = true;
             b2Green.getBackground().setAlpha(255);
+            score += 1;
+            tv_Score.setText(String.valueOf(score));
 
         }
         if ((y > EAST_MOVE_BACKWARD) && (highLimit_EAST == true)) {
@@ -130,6 +142,8 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
         if ((y > WEST_MOVE_FORWARD) && (highLimit_WEST == false)) {
             highLimit_WEST = true;
             b2Red.getBackground().setAlpha(255);
+            score += 1;
+            tv_Score.setText(String.valueOf(score));
         }
         if ((y < WEST_MOVE_BACKWARD) && (highLimit_WEST == true)) {
 
@@ -180,7 +194,9 @@ public class PlayScreenActivity extends AppCompatActivity implements SensorEvent
 
     public void doSkip(View view)
     {
-        Intent GameOverActivity = new Intent(view.getContext(), edu.simrandhillon.gameprojectpage1.GameOverActivity.class);
-        startActivity(GameOverActivity);
+        Intent gameOverActivity = new Intent(view.getContext(), edu.simrandhillon.gameprojectpage1.GameOverActivity.class);
+        int scr = Integer.valueOf(tv_Score.getText().toString());
+        gameOverActivity.putExtra("userScore" , scr);
+        startActivity(gameOverActivity);
     }
 }

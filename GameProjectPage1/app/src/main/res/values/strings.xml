@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">GameProjectPage1</string>
+    <string name="green1">Green</string>
+    <string name="blue">BLUE</string>
+    <string name="red">RED</string>
+    <string name="yellow">Yellow</string>
+    <string name="play">Play</string>
+    <string name="highscore1">HighScore</string>
+    <string name="retry1">Retry</string>
+    <string name="green">Green</string>
+    <string name="blue1">BLUE</string>
+    <string name="red1">RED</string>
+    <string name="yellow1">Yellow</string>
+    <string name="skip">Skip</string>
+    <string name="_01">0</string>
+    <string name="score">Score:</string>
+    <string name="retry">Retry</string>
+    <string name="highscore">HighScore</string>
+    <string name="game_over">Game Over</string>
+    <string name="your_score">Your Score:</string>
+    <string name="_0">0</string>
 </resources>

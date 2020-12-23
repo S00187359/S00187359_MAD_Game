@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             //mTextField.setText("done!");
             // we now have the game sequence
 
-            for (int i = 0; i< arrayIndex; i++)
+            for (int i = 0; i < arrayIndex; i++)
                 Log.d("game sequence", String.valueOf(gameSequence[i]));
 
 
@@ -51,11 +51,11 @@ public class MainActivity extends AppCompatActivity {
             // put the sequence into the next activity
             // stack overglow https://stackoverflow.com/questions/3848148/sending-arrays-with-intent-putextra
             Intent i = new Intent(MainActivity.this, PlayScreenActivity.class);
-            // i.putExtra("numbers", array);
+            i.putExtra("numbers", gameSequence[arrayIndex]);
             startActivity(i);
 
             // start the next activity
-            //int[] arrayB = extras.getIntArray("numbers");
+            //int[] arrayB = getIntent().getIntArrayExtra("numbers");
         }
     };
 
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                     // put the sequence into the next activity
                     // stack overglow https://stackoverflow.com/questions/3848148/sending-arrays-with-intent-putextra
                     Intent i = new Intent(MainActivity.this, PlayScreenActivity.class);
-                    // i.putExtra("numbers", array);
+                    i.putExtra("numbers", gameSequence[arrayIndex]);
                     startActivity(i);
 
                     // start the next activity
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                     // put the sequence into the next activity
                     // stack overglow https://stackoverflow.com/questions/3848148/sending-arrays-with-intent-putextra
                     Intent i = new Intent(MainActivity.this, PlayScreenActivity.class);
-                    // i.putExtra("numbers", array);
+                    i.putExtra("numbers", gameSequence[arrayIndex]);
                     startActivity(i);
 
                     // start the next activity
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void oneButton() {
 
-        Toast.makeText(this, "Index: = " + arrayIndex, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Array Index: " + arrayIndex , Toast.LENGTH_SHORT).show();
         n = getRandom(sequenceCount);
 
         switch (n) {

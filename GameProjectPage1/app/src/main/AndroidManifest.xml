@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GameProjectPage1">
-        <activity android:name=".GameOverActivity" android:screenOrientation="landscape" ></activity>
+        <activity android:name=".HighScoreActivity" android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".GameOverActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".PlayScreenActivity"
             android:screenOrientation="landscape" />
